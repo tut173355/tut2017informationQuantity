@@ -123,7 +123,7 @@ public class TestCase {
     catch(Exception e) {
         System.out.println("Exception occurred: STOP");
 	}
-	
+/*
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
@@ -229,7 +229,7 @@ public class TestCase {
 	}
 	catch(Exception e) {
 		System.out.println("Exception occurred: STOP");
-	}
+	}*/
     }
 }	    
 	    
