@@ -83,18 +83,6 @@ public class Frequencer implements FrequencerInterface{
 			suffixArray[i] = suffixArray[min];
 			suffixArray[min] = buff;
 		}
-
-        /* バブルソート */
-        /*for(int i=0;i<space.length;i++){
-            for(int j=0;j<space.length-i-1;j++){
-                int ans = suffixCompare(j,j+1);
-                if(ans == 1){
-                    int buff = suffixArray[j+1];
-                    suffixArray[j+1] = suffixArray[j];
-                    suffixArray[j] = buff;
-                }
-            }
-        }*/
         printSuffixArray();
         //System.out.println("Dane");
     }
@@ -121,8 +109,8 @@ public class Frequencer implements FrequencerInterface{
         if(sj > s) s = sj;
         int n = mySpace.length - s;
         for(int k=0;k<n;k++) {
-            if(mySpace[si+k]>mySpace[sj+k]) return 1;
-            if(mySpace[si+k]<mySpace[sj+k]) return -1;
+            if(mySpace[si+k] > mySpace[sj+k]) return 1;
+            if(mySpace[si+k] < mySpace[sj+k]) return -1;
         }
         if(si < sj) return 1;
         if(si > sj) return -1;
@@ -130,18 +118,44 @@ public class Frequencer implements FrequencerInterface{
     }
 	
    
-    private int subByteStartIndex(int start, int end){
-        for(int i=0;i<mySpace.length;i++){
-            //if(targetCompare(suffixArray[i],start,end)==-1)return suffixArray.length;
-            if(targetCompare(suffixArray[i],start,end)==0)return i;
-        }
+    private int subByteStartIndex(int start, int end){ 
+        int pLeft = 0;
+        int pRight = suffixArray.length;
+    
+        do {
+            int center = (pLeft + pRight) / 2;
+            if (targetCompare(suffixArray[center],start,end)==0 && targetCompare(suffixArray[center-1],start,end)==-1) {
+                return center;
+            }
+            else if (targetCompare(suffixArray[center],start,end) == -1){
+                pLeft = center + 1; //真ん中の一つ右側を左端とする
+            } 
+            else {
+                pRight = center - 1;
+            }
+        } while (pLeft <= pRight);
         return suffixArray.length;
     }
     private int subByteEndIndex(int start, int end){
-        for(int i=0;i<mySpace.length;i++){
+        /*for(int i=0;i<mySpace.length;i++){
             if(targetCompare(suffixArray[i],start,end)==0 && targetCompare(suffixArray[i+1],start,end) != 0)
                 return i+1;
-        }
+        }*/
+        int pLeft = 0;
+        int pRight = suffixArray.length;
+        do {
+            int center = (pLeft + pRight) / 2;
+            if (targetCompare(suffixArray[center],start,end)==0 && targetCompare(suffixArray[center+1],start,end)==1) {
+                return center+1;
+            }
+            else if (targetCompare(suffixArray[center],start,end) == 1){
+                pRight = center - 1;
+            } 
+            else {
+                pLeft = center + 1; //真ん中の一つ右側を左端とする
+
+            }
+        } while (pLeft <= pRight);
         return suffixArray.length;
     }
 
@@ -163,9 +177,9 @@ public class Frequencer implements FrequencerInterface{
         int first = subByteStartIndex(start,end);
         int last1 = subByteEndIndex(start, end);
         //inspection code
-        for(int k=start;k<end;k++) { System.out.write(myTarget[k]); }
+       /* for(int k=start;k<end;k++) { System.out.write(myTarget[k]); }
         System.out.printf(": first=%d last1=%d\n", first, last1);
-        
+        */
         return last1 - first;
     }
     
