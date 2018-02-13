@@ -38,9 +38,29 @@ public class Frequencer implements FrequencerInterface{
    //	public void setTarget(byte [] target) { myTarget = target;}
     public void setTarget(byte [] target) {
         myTarget = target;
-        if(myTarget.length>0) targetReady = true;
+        if(myTarget.length>0) 
+            targetReady = true;
     }
-    
+    public void quickSort(int[] suffixArray, byte left, byte right) {
+        if (left>=right) {
+            return;
+        }
+        int pivot = suffixArray[(left+right)/2];
+        byte l = left, r = right;
+        int tmp;
+        while(l<=r) {
+            while(suffixCompare(suffixArray[l], pivot) == 1) { l++; }
+            while(suffixCompare(suffixArray[r], pivot) == -1)  { r--; }
+            if (l<=r) {
+                tmp = suffixArray[l]; 
+                suffixArray[l] = suffixArray[r]; 
+                suffixArray[r] = tmp;
+                l++; r--;
+            }
+        }
+        quickSort(suffixArray, left, r);  // ピボットより左側をクイックソート
+        quickSort(suffixArray, l, right); // ピボットより右側をクイックソート
+    }
  	//public void setSpace(byte []space) { mySpace = space; }
    	public void setSpace(byte []space) { //mySpace = space;
         mySpace = space; 
