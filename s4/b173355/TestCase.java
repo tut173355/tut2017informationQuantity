@@ -38,7 +38,7 @@ public class TestCase {
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
 		freq = myObject.frequency();
-		System.out.println(freq);
+		//System.out.println(freq);
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
@@ -123,7 +123,7 @@ public class TestCase {
     catch(Exception e) {
         System.out.println("Exception occurred: STOP");
 	}
-/*
+
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
@@ -132,16 +132,16 @@ public class TestCase {
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
+	    //System.out.println(">0 "+value);
 	    myObject.setTarget("01".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
+	    //System.out.println(">01 "+value);
 	    myObject.setTarget("0123".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
+	    //System.out.println(">0123 "+value);
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
+	    //System.out.println(">00 "+value);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -155,13 +155,13 @@ public class TestCase {
 	    myObject1.setSpace("3210321001230123".getBytes());
 	    //myObject1.setTarget("0".getBytes());
 		value1 = myObject1.estimation();
-		System.out.println(">0 "+value1);
+		//System.out.println(">0 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">01 "+value1);
+		//System.out.println(">01 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">0123 "+value1);
+		//System.out.println(">0123 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">00 "+value1);
+		//System.out.println(">00 "+value1);
 		if(0.0 == value1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
@@ -218,19 +218,19 @@ public class TestCase {
 		//myObject1.setSpace("".getBytes());//SPACE未定義
 		myObject1.setTarget("0".getBytes()); 
 		value1 = myObject1.estimation();
-		System.out.println(">0 "+value1);
+		//System.out.println(">0 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">01 "+value1);
+		//System.out.println(">01 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">0123 "+value1);
+		//System.out.println(">0123 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">00 "+value1);
+		//System.out.println(">00 "+value1);
 		if(Double.MAX_VALUE == value1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 		System.out.println("Exception occurred: STOP");
-	}*/
-    }
+	}
+}
 }	    
 	    
 
