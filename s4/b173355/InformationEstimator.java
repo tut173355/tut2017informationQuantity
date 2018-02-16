@@ -64,8 +64,8 @@ public class InformationEstimator implements InformationEstimatorInterface{
         double [] prefixEstimation = new double[myTarget.length+1];
         
         prefixEstimation[0] = (double) 0.0; //IE("") = 0.0;
-        
-        for(int n=1;n<=myTarget.length;n++) {
+        int lenMeT = myTarget.length;
+        for(int n=1;n<=lenMeT;n++) {
             // target = "abcdef..", n = 4 for example, subByte(0, 4) = "abcd",
             // IE("abcd") = min( IE("")+iq(#"abcd"),
             //                   IE("a") + iq(#"bcd"),
@@ -93,7 +93,7 @@ public class InformationEstimator implements InformationEstimatorInterface{
             }
             prefixEstimation[n]=value;
         }
-        return prefixEstimation[myTarget.length];
+        return prefixEstimation[lenMeT];
         
  
     }

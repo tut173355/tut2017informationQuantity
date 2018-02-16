@@ -26,9 +26,10 @@ public class Frequencer implements FrequencerInterface{
     
     private void printSuffixArray() {
         if(spaceReady) {
-            for(int i=0; i< mySpace.length; i++) {
+            int lenMeS = mySpace.length;
+            for(int i=0; i< lenMeS; i++) {
                 int s = suffixArray[i];
-                for(int j=s;j<mySpace.length;j++) {
+                for(int j=s;j<lenMeS;j++) {
                     System.out.write(mySpace[j]);
                 }
                 System.out.write('\n');
@@ -69,24 +70,21 @@ public class Frequencer implements FrequencerInterface{
             }
             quickSort(left, r);  // ピボットより左側をクイックソート
             quickSort(l, right); // ピボットより右側をクイックソート
-            // if (left < r) {
-            //     quickSort(left, r);
-            // }
-            // if (l < right) {
-            //     quickSort(l, right);
-            // }
+            
        }
     
  	//public void setSpace(byte []space) { mySpace = space; }
    	public void setSpace(byte []space) { //mySpace = space;
         mySpace = space; 
-        if(mySpace.length>0)  spaceReady = true;
-        suffixArray = new int[space.length];
+        int lenMeS = mySpace.length;
+        if(lenMeS>0)  
+        spaceReady = true;
+        suffixArray = new int[lenMeS];
         // put all suffixes in suffixArray. Each suffix is expressed by one interger.
-        for(int i = 0; i< space.length; i++) {
+        for(int i = 0; i< lenMeS; i++) {
             suffixArray[i] = i;
         }
-        quickSort(0, space.length-1);
+        quickSort(0, lenMeS-1);
         //ソート
         // for (int i = 0; i < space.length; i++) {
 		// 	int min = i;
@@ -100,25 +98,15 @@ public class Frequencer implements FrequencerInterface{
 		// 	suffixArray[i] = suffixArray[min];
 		// 	suffixArray[min] = buff;
 		// }
-        /*ソート
-        for(int i=0;i<space.length;i++){
-            for(int j=0;j<space.length-i-1;j++){
-		        int ans = suffixCompare(j,j+1);
-		        if(ans == 1){
-		            int buff = suffixArray[j+1];
-		            suffixArray[j+1] = suffixArray[j];
-		            suffixArray[j] = buff;
-		        }
-	        }
-        }*/
 	
-        printSuffixArray();
+        //printSuffixArray();
         //System.out.println("Dane");
     }
     
     
     private int targetCompare(int i, int start, int end) {
         if((start == end) && (i <= mySpace.length)) return 0;
+
         if(mySpace[i]>myTarget[start]){
             return 1;
         }
@@ -220,8 +208,8 @@ public class Frequencer implements FrequencerInterface{
         int first = subByteStartIndex(start,end);
         int last1 = subByteEndIndex(start, end);
         //inspection code
-       for(int k=start;k<end;k++) { System.out.write(myTarget[k]); }
-        System.out.printf(": first=%d last1=%d\n", first, last1);
+    //    for(int k=start;k<end;k++) { System.out.write(myTarget[k]); }
+    //     System.out.printf(": first=%d last1=%d\n", first, last1);
         
         return last1 - first;
     }
