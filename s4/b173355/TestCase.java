@@ -26,8 +26,6 @@ public interface InformationEstimatorInterface{
 // Otherwise, estimation of information quantity, 
 }                        
 */
-
-/*
 public class TestCase {
     public static void main(String[] args) {
 	try {
@@ -86,7 +84,6 @@ public class TestCase {
 	    myObject3.setTarget("G".getBytes());
         freq3 = myObject3.frequency();
 		System.out.println(freq3);
-		
         if(0 == freq3) { System.out.println("OK"); } else {System.out.println("WRONG"); }
     }
     catch(Exception e) {
@@ -176,20 +173,20 @@ public class TestCase {
 	    myObject1.setSpace("3210321001230123".getBytes());
 	    myObject1.setTarget("".getBytes()); //TARGETの 長さ0
 		value1 = myObject1.estimation();
-		System.out.println(">0 "+value1);
+		//System.out.println(">0 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">01 "+value1);
+		//System.out.println(">01 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">0123 "+value1);
+		//System.out.println(">0123 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">00 "+value1);
+		//System.out.println(">00 "+value1);
 		if(0.0 == value1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 		System.out.println("Exception occurred: STOP");
 	}
 		//SPACEの長さ0の確認
-	try{
+	/*try{
 		InformationEstimatorInterface myObject1;
 		double value1;
 		System.out.println("checking s4.b173355.InformationEstimator to return 0, when SPACE's length is zero");
@@ -197,18 +194,18 @@ public class TestCase {
 		myObject1.setSpace("".getBytes());//SPACEの長さ0
 		myObject1.setTarget("0".getBytes()); 
 		value1 = myObject1.estimation();
-		System.out.println(">0 "+value1);
+		//System.out.println(">0 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">01 "+value1);
+		//System.out.println(">01 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">0123 "+value1);
+		//System.out.println(">0123 "+value1);
 		value1 = myObject1.estimation();
-		System.out.println(">00 "+value1);
+		//System.out.println(">00 "+value1);
 		if(Double.MAX_VALUE == value1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 		System.out.println("Exception occurred: STOP");
-	}
+    }*/
 	//SPACE未定義
 	try{
 		InformationEstimatorInterface myObject1;
@@ -230,10 +227,6 @@ public class TestCase {
 	catch(Exception e) {
 		System.out.println("Exception occurred: STOP");
 	}
-}*/
-
-public class TestCase {
-  public static void main(String[] args) {
     // [1] check behavior when normal input
     try {
 	    FrequencerInterface  myObject;
@@ -367,7 +360,7 @@ public class TestCase {
     catch(Exception e) {
       System.out.println("Exception occurred: STOP");
     }
-/*
+
     // [7] check behavior when normal input
     try {
         InformationEstimatorInterface myObject;
@@ -480,12 +473,8 @@ public class TestCase {
     }
     catch(Exception e) {
         System.out.println("Exception occurred: STOP");
-    }*/
+    }
     // when the space is unreasonably large. We will encounter other problem anyway.
-  }
+    }
 
-}	    
-	    
-
-
-	    
+}	
